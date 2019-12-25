@@ -1,11 +1,8 @@
 'use strict';
 
 function choose_no_repeat_number(collection) {
-  var newArr = [];
-  collection.forEach(function (element) {
-    if (newArr.indexOf(element) === -1) {
-      newArr.push(element);
-    }
+  var newArr = collection.filter(function (item, index) {
+    return collection.indexOf(item) === index;
   });
   return newArr;
 }
