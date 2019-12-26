@@ -1,7 +1,14 @@
 'use strict';
 
 function calculate_elements_sum(collection, element) {
-  //在这里写入代码
+  var elementIndex = collection.reduce(function (accumulator, currentValue, currentIndex) {
+    if (element === currentValue) {
+      accumulator = currentIndex;
+      return accumulator;
+    }
+    return accumulator;
+  });
+  return elementIndex;
 }
 
 module.exports = calculate_elements_sum;

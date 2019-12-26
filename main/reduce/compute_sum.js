@@ -1,7 +1,10 @@
 'use strict';
 
 function calculate_elements_sum(collection) {
-  //在这里写入代码
+  var sum = collection.reduce(function (sum, currentNum) {
+    return sum + currentNum;
+  });
+  return sum;
 }
 
 module.exports = calculate_elements_sum;
