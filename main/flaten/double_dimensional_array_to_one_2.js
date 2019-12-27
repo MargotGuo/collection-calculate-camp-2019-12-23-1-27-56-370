@@ -1,11 +1,11 @@
 'use strict';
 
 function double_to_one(collection) {
-  var temp = collection.flat(Infinity);
-  var newArr = temp.filter(function (item, index) {
-    return temp.indexOf(item) === index;
+  var flatendArray = collection.flat(Infinity);
+  var removeExtraElement = flatendArray.filter(function (item, index) {
+    return flatendArray.indexOf(item) === index;
   });
-  return newArr;
+  return removeExtraElement;
 }
 
 module.exports = double_to_one;
