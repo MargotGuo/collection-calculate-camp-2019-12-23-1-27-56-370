@@ -1,10 +1,12 @@
 'use strict';
 
 function choose_no_repeat_number(collection) {
-  var newArr = collection.filter(function (item, index) {
-    return collection.indexOf(item) === index;
-  });
-  return newArr;
+  var noRepeatNumber = collection.filter(isNoRepeatNumber);
+  return noRepeatNumber;
 }
-choose_no_repeat_number([1,1,1,2]);
+
+function isNoRepeatNumber(item, index, collection) {
+  return collection.indexOf(item) === index;
+}
+
 module.exports = choose_no_repeat_number;

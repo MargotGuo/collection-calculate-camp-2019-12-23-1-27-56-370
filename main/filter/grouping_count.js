@@ -1,15 +1,15 @@
 'use strict';
 
 function grouping_count(collection) {
-  var newObj = {};
+  var countResult = {};
   collection.forEach(function (element) {
-    if (newObj[element]) {
-      newObj[element]++;
+    if (countResult[element]) {
+      countResult[element]++;
     } else {
-      newObj[element] = 1;
+      countResult[element] = 1;
     }
   });
-  return newObj;
+  return countResult;
 }
 
 module.exports = grouping_count;

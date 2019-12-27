@@ -1,11 +1,12 @@
 'use strict';
 
 function choose_even(collection) {
-  var newArr = collection.filter(isEven);
-  return newArr;
+  var evenNumber = collection.filter(isEvenNumber);
+  return evenNumber;
 }
 
-function isEven(element) {
-  return element % 2 === 0;
+function isEvenNumber(number) {
+  return number % 2 === 0;
 }
+
 module.exports = choose_even;
