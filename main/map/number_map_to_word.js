@@ -1,11 +1,13 @@
 'use strict';
-var number_map_to_word = function(collection){
-  var charArr = collection.map(function (element) {
-    var element = String.fromCharCode(element + 96);
-    return element;
-  });
 
-  return charArr;
+var number_map_to_word = function(collection){
+  var charArray = collection.map(numberToChar);
+  return charArray;
 };
+
+function numberToChar(currentNumber) {
+  var currentChar = String.fromCharCode(currentNumber + 96);
+  return currentChar;
+}
 
 module.exports = number_map_to_word;

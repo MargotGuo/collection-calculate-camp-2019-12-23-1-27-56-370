@@ -1,9 +1,12 @@
 'use strict';
+
 var map_to_four_multiples_add_one = function(collection){
-  var newArr = collection.map(function (element) {
-    return element * 4 + 1;
-  });
-  return newArr;
+  var result = collection.map(operate);
+  return result;
 };
+
+function operate(currentValue) {
+  return currentValue * 4 + 1;
+}
 
 module.exports = map_to_four_multiples_add_one;

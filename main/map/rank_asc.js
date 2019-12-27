@@ -1,8 +1,11 @@
 'use strict';
+
 var rank_asc = function(collection){
-  return collection.sort(function(a, b) {
-    return a < b ? 1 : -1;
+  var sortedCollection = collection.sort(function(a, b) {
+    return b - a;
   });
+  return sortedCollection;
 };
+
 
 module.exports = rank_asc;

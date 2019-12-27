@@ -1,9 +1,12 @@
 'use strict';
+
 var map_to_three_multiples = function(collections){
-  var newArr = collections.map(function (element) {
-    return element * 3;
-  });
-  return newArr;
+  var result = collections.map(operate);
+  return result;
 };
+
+function operate(currentValue) {
+  return currentValue * 3;
+}
 
 module.exports = map_to_three_multiples;
