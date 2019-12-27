@@ -2,7 +2,7 @@
 
 function get_union(collection_a, collection_b) {
   var differentElement = findDifferent(collection_a, collection_b);
-  var union = collection_a.concat(differentElement)
+  var union = collection_a.concat(differentElement);
   return union;
 }
 

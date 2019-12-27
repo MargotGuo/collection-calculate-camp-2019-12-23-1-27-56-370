@@ -1,8 +1,8 @@
 'use strict';
 
 function get_letter_interval(number_a, number_b) {
-  var operation = getOperationType(number_a, number_b) // +1 or -1
-  var allNumberArray = getAllNumberArray(number_a, number_b, operation)
+  var operation = getOperationType(number_a, number_b); // +1 or -1
+  var allNumberArray = getAllNumberArray(number_a, number_b, operation);
   var allCharArray = allNumberArray.map(numberToChar);
   return allCharArray;
 }
