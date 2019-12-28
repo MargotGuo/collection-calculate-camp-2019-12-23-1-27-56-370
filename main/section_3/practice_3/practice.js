@@ -1,39 +1,52 @@
+'use strict';
+
 function create_updated_collection(collection_a, object_b) {
   var collection_c = count_same_elements(collection_a);
 
-  var outputCollection = collection_c.map(function(tempObj) {
-    if (object_b.value.indexOf(tempObj.key) !== -1) {
-      var reduction = Math.floor(tempObj.count / 3);
-      tempObj.count -= reduction;
+  var outputCollection = collection_c.map(function(currentObj) {
+    if (object_b.value.includes(currentObj.key)) {
+      var reduction = Math.floor(currentObj.count / 3);
+      currentObj.count -= reduction;
     }
-    return tempObj;
+    return currentObj;
   });
+
   return outputCollection;
 }
 
 function count_same_elements(collection) {
   var keyArr = collection.filter(getKeyArray);
-  var countArr = keyArr.map(getCountSummary);
-  return countArr;
-
-  function getCountSummary(element) {
-    var tempCount = collection.reduce((accumulator, currentValue) => {
-      if (currentValue === element) {
-        accumulator++;
-        return accumulator;
-      }
-      return accumulator;
-    }, 0);
-
-    var tempObj = {
-      key: element,
-      count: tempCount
-    }
-    return tempObj;
-  }
+  var countResult = getCountSummary(keyArr, collection);
+  return countResult;
 }
 
 function getKeyArray(item, index, collection) {
   return collection.indexOf(item) === index;
 }
+
+function getCountSummary(keyArr, collection) {
+  var result = keyArr.map(function (element) {
+    var elementCount = countElementFrequency(collection, element);
+    var countResult = {
+      key: element,
+      count: elementCount
+    };
+    return countResult;
+  });
+  return result;
+}
+
+function countElementFrequency(collection, element) {
+  var elementArray = getElementArray(collection, element);
+  var elementFrequency = elementArray.length;
+  return elementFrequency;
+}
+
+function getElementArray(collection, element) {
+  var elementArray = collection.filter(function (currentValue) {
+    return currentValue === element;
+  });
+  return elementArray;
+}
+
 module.exports = create_updated_collection;

@@ -1,9 +1,11 @@
+'use strict';
+
 function create_updated_collection(collection_a, object_b) {
-  var outputCollection = collection_a.map(function(tempObj) {
-    if (object_b.value.indexOf(tempObj.key) !== -1) {
-      tempObj.count--;
+  var outputCollection = collection_a.map(function(currentObj) {
+    if (object_b.value.includes(currentObj.key)) {
+      currentObj.count--;
     }
-    return tempObj;
+    return currentObj;
   });
   return outputCollection;
 }
