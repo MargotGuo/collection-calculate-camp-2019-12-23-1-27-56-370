@@ -1,12 +1,15 @@
 'use strict';
 
 function average_uneven(collection) {
-  var oddNumber = collection.filter(function (element) {
-    return element % 2 === 1;
+
+  var oddNumber = collection.filter(function (currentValue) {
+    return currentValue % 2 === 1;
   });
-  var sum = oddNumber.reduce(function (tempResult, currentValue) {
-    return tempResult + currentValue;
+
+  var sum = oddNumber.reduce(function (tempSum, currentValue) {
+    return tempSum + currentValue;
   }, 0);
+
   var average = sum / oddNumber.length;
   return average;
 }

@@ -1,12 +1,15 @@
 'use strict';
 
 function amount_even(collection) {
-  var evenNumber = collection.filter(function (element) {
-    return element % 2 === 0;
+
+  var evenNumber = collection.filter(function (currentValue) {
+    return currentValue % 2 === 0;
   });
-  var sum = evenNumber.reduce(function (tempResult, currentValue) {
-    return tempResult + currentValue;
+
+  var sum = evenNumber.reduce(function (tempSum, currentValue) {
+    return tempSum + currentValue;
   }, 0);
+
   return sum;
 }
 
