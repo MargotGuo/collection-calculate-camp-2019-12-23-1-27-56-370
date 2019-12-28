@@ -1,14 +1,15 @@
 'use strict';
 
 function calculate_elements_sum(collection, element) {
-  var elementIndex = collection.reduce(function (accumulator, currentValue, currentIndex) {
+
+  var lastSubscript = collection.reduce(function (tempIndex, currentValue, currentIndex) {
     if (element === currentValue) {
-      accumulator = currentIndex;
-      return accumulator;
+      return currentIndex;
     }
-    return accumulator;
+    return tempIndex;
   });
-  return elementIndex;
+  
+  return lastSubscript;
 }
 
 module.exports = calculate_elements_sum;

@@ -1,9 +1,11 @@
 'use strict';
 
 function calculate_elements_sum(collection) {
-  var sum = collection.reduce(function (sum, currentNum) {
-    return sum + currentNum;
+
+  var sum = collection.reduce(function (tempSum, currentValue) {
+    return tempSum + currentValue;
   });
+  
   return sum;
 }
 

@@ -1,13 +1,17 @@
 'use strict';
 
 function calculate_elements_sum(collection, element) {
-  var elementIndex = collection.reduce(function (outputIndex, currentValue, currentIndex) {
-    if (currentValue !== element && currentIndex === outputIndex) {
-      return outputIndex + 1;
+
+  var countStatus = true;
+  var firstSubscipt = collection.reduce(function (tempIndex, currentValue, currentIndex) {
+    if (currentValue === element && countStatus) {
+      countStatus = false;
+      return currentIndex;
     }
-    return outputIndex;
-  }, 0);
-  return elementIndex;
+    return tempIndex;
+  });
+
+  return firstSubscipt;
 }
 
 module.exports = calculate_elements_sum;

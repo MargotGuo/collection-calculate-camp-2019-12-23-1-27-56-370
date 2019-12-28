@@ -1,19 +1,22 @@
 'use strict';
 
 function compute_chain_median(collection) {
-  var splitArr = collection.split('->');
-  var sortArr = splitArr.sort( function (a, b) {
+
+  var splitArray = collection.split('->');
+
+  var sortArray = splitArray.sort(function (a, b) {
     return a - b;
   });
 
-  var len = sortArr.length;
-  var result;
+  var len = sortArray.length;
+  var median;
   if (len % 2) {
-    result = sortArr[Math.ceil(len / 2) - 1];
+    median = sortArray[(len - 1) / 2];
   } else {
-    result = 0.5 * sortArr[len / 2 - 1] + 0.5 * sortArr[len / 2];
+    median = 0.5 * sortArray[len / 2 - 1] + 0.5 * sortArray[len / 2];
   }
-  return Number(result);
+
+  return median;
 }
 
 module.exports = compute_chain_median;

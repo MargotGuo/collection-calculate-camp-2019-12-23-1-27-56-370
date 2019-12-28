@@ -1,13 +1,15 @@
 'use strict';
 
 function find_first_even(collection) {
-  var firstEvenNum = collection.reduce(function (accumulator, currentValue) {
-    if (accumulator % 2 !== 0 && currentValue % 2 === 0) {
+
+  var firstEvenNumber = collection.reduce(function (tempValue, currentValue) {
+    if (tempValue % 2 && !(currentValue % 2)) {
       return currentValue;
     }
-    return accumulator;
+    return tempValue;
   });
-  return firstEvenNum;
+  
+  return firstEvenNumber;
 }
 
 module.exports = find_first_even;

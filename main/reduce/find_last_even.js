@@ -1,14 +1,15 @@
 'use strict';
 
 function find_last_even(collection) {
-  var lastEvenNum = collection.reduce(function (accumulator, currentValue) {
+
+  var lastEvenNumber = collection.reduce(function (tempValue, currentValue) {
     if (currentValue % 2 === 0) {
-      accumulator = currentValue;
-      return accumulator;
+      return currentValue;
     }
-    return accumulator;
+    return tempValue;
   });
-  return lastEvenNum;
+  
+  return lastEvenNumber;
 }
 
 module.exports = find_last_even;
