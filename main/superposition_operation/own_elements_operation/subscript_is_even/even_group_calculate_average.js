@@ -1,4 +1,5 @@
 'use strict';
+
 var even_group_calculate_average = function(collection){
   var evenSubscriptNumber = collection.filter(function (currentValue, currentIndex) {
     return currentIndex % 2 === 1;
@@ -8,24 +9,32 @@ var even_group_calculate_average = function(collection){
     return currentValue % 2 === 0;
   });
 
-  var result = [];;
+  var result = [];
   if (evenNumber.length) {
-    var maxEvenNumber = findMaxEvenNumber(evenNumber);
-    var maxLength = maxEvenNumber.toString().length;
-    for (var index = 1; index <= maxLength; index++) {
-      var tempArr = evenNumber.filter(function (element) {
-        return element.toString().length === index;
-      });
-      if (tempArr.length) {
-        var average = getAverage(tempArr);
-        result.push(average);
-      }
-    }
+    var evenAverage = getEvenAverage(evenNumber);
+    result = evenAverage;
   } else {
     result.push(0);
   }
+
   return result;
 };
+
+function getEvenAverage(evenNumber) {
+  var averageArray = [];
+  var maxEvenNumber = findMaxEvenNumber(evenNumber);
+  var maxLength = maxEvenNumber.toString().length;
+  for (var magnitude = 1; magnitude <= maxLength; magnitude++) {
+    var sameMagnitudeNumber = evenNumber.filter(function (currentValue) {
+      return currentValue.toString().length === magnitude;
+    });
+    if (sameMagnitudeNumber.length) {
+      var averageNumber = getAverage(sameMagnitudeNumber);
+      averageArray.push(averageNumber);
+    }
+  }
+  return averageArray;
+}
 
 function findMaxEvenNumber(array) {
   var sortedArray = array.sort(function (a, b) {
@@ -42,4 +51,5 @@ function getAverage(array) {
   var average = sum / array.length;
   return average;
 }
+
 module.exports = even_group_calculate_average;

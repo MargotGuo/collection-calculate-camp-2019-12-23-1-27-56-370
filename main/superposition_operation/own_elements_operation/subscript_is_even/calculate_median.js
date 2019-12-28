@@ -8,14 +8,19 @@ var calculate_median = function(collection){
     return a - b;
   });
 
-  var len = sortArr.length;
-  var result;
-  if (len % 2) {
-    result = sortArr[Math.ceil(len / 2) - 1];
-  } else {
-    result = 0.5 * sortArr[len / 2 - 1] + 0.5 * sortArr[len / 2];
-  }
-  return Number(result);
+  var median = getMedian(sortArr);
+  return median;
 };
+
+function getMedian(array) {
+  var len = array.length;
+  var median;
+  if (len % 2) {
+    median = array[(len - 1) / 2];
+  } else {
+    median = 0.5 * array[len / 2 - 1] + 0.5 * array[len / 2];
+  }
+  return median;
+}
 
 module.exports = calculate_median;
