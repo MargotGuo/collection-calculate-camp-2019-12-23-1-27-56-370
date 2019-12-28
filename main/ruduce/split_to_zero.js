@@ -1,13 +1,16 @@
 'use strict';
 
 function spilt_to_zero(number, interval) {
-  var outputArr = [number];
+
+  var outputArray = [number];
+
   while (number > 0) {
     number -= interval;
     number = Math.round(number * 10) / 10;
-    outputArr.push(number);
+    outputArray.push(number);
   } 
-  return outputArr;
+
+  return outputArray;
 }
 
 module.exports = spilt_to_zero;
