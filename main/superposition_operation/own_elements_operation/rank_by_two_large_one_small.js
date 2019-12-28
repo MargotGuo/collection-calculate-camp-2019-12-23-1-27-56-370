@@ -3,6 +3,7 @@ function rank_by_two_large_one_small(collection){
   var sortCollection = collection.sort(function (a, b) {
     return a - b;
   });
+
   var result = sortCollection.map(function(currentValue, currentIndex) {
     if (sortCollection[currentIndex + 2]) {
       if (currentIndex % 3 !== 2) {
@@ -14,6 +15,7 @@ function rank_by_two_large_one_small(collection){
       return currentValue;
     }
   });
+  
   return result;
 }
 module.exports = rank_by_two_large_one_small;
