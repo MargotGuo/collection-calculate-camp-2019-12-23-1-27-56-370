@@ -1,36 +1,24 @@
 function count_same_elements(collection) {
-  var keyArr = collection.filter(getKeyArray);
-  var countResult = getCountSummary(keyArr, collection);
-  return countResult;
-}
+  var countObj = {};
 
-function getKeyArray(item, index, collection) {
-  return collection.indexOf(item) === index;
-}
+  for (var i = 0, len = collection.length; i < len; i++) {
+    if (countObj[collection[i]]) {
+      countObj[collection[i]]++;
+    } else {
+      countObj[collection[i]] = 1;
+    }
+  }
 
-function getCountSummary(keyArr, collection) {
-  var result = keyArr.map(function (element) {
-    var elementCount = countElementFrequency(collection, element);
-    var countResult = {
-      key: element,
-      count: elementCount
+  var result = [];
+  for (var key in countObj) {
+    var tempObj = {
+      key: key,
+      count: countObj[key]
     };
-    return countResult;
-  });
+    result.push(tempObj);
+  }
+
   return result;
-}
-
-function countElementFrequency(collection, element) {
-  var elementArray = getElementArray(collection, element);
-  var elementFrequency = elementArray.length;
-  return elementFrequency;
-}
-
-function getElementArray(collection, element) {
-  var elementArray = collection.filter(function (currentValue) {
-    return currentValue === element;
-  });
-  return elementArray;
 }
 
 module.exports = count_same_elements;
