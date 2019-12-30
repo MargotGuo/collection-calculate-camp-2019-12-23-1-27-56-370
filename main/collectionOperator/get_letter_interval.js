@@ -2,9 +2,15 @@
 
 function get_letter_interval(number_a, number_b) {
   var operation = getOperationType(number_a, number_b); // +1 or -1
-  var allNumberArray = getAllNumberArray(number_a, number_b, operation);
-  var allCharArray = allNumberArray.map(numberToChar);
-  return allCharArray;
+
+  var numberArray = [];
+  for (var i = number_a; i != number_b; i += operation) {
+    numberArray.push(i);
+  }
+  numberArray.push(number_b);
+
+  var charArray = numberArray.map(numberToChar);
+  return charArray;
 }
 
 function getOperationType(number_a, number_b) {
@@ -13,19 +19,8 @@ function getOperationType(number_a, number_b) {
   return interval;
 }
 
-function getAllNumberArray(number_a, number_b, operation) {
-  var arr = [number_a];
-  var newNum = number_a;
-  while (newNum !== number_b) {
-    newNum += operation;
-    arr.push(newNum);
-  }
-  return arr;
-}
-
-function numberToChar(currentValue) {
-  var currentChar = String.fromCharCode(currentValue + 96);
-  return currentChar;
+function numberToChar (currentNumber) {
+  return String.fromCharCode(currentNumber + 96);
 }
 
 module.exports = get_letter_interval;
