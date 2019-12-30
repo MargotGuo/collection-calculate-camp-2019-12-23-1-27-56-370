@@ -27,7 +27,7 @@ function numberToChar (currentNumber) {
   var round = Math.floor((currentNumber - 1) / 26);
   var currentChar;
   if (round) {
-    currentChar = String.fromCharCode(round + 96) + String.fromCharCode(currentNumber - 26 * round + 96);
+    currentChar = numberToChar(round) + String.fromCharCode(currentNumber - 26 * round + 96);
   } else {
     currentChar = String.fromCharCode(currentNumber + 96);
   }
