@@ -5,7 +5,7 @@ function median_to_letter(collection) {
     return a - b;
   });
   var median = getMedian(sortArr);
-  var letter = numberToLetter(median);
+  var letter = numberToChar(median);
   return letter;
 }
 
@@ -20,15 +20,14 @@ function getMedian(array) {
   return median;
 }
 
-function numberToLetter(number) {
-  var round = Math.floor((number - 1) / 26);
-  var letter;
-  if (round) {
-    letter = String.fromCharCode(round + 96) + String.fromCharCode(number - 26 * round+ 96);
+function numberToChar (currentNumber) {
+  var quotient = Math.floor((currentNumber - 1) / 26);
+  var remainder = (currentNumber - 1) % 26;
+  if (quotient === 0) {
+    return String.fromCharCode(remainder + 97);
   } else {
-    letter = String.fromCharCode(number + 96);
+    return numberToChar(quotient) + String.fromCharCode(remainder + 97);
   }
-  return letter;
 }
 
 module.exports = median_to_letter;
