@@ -6,8 +6,7 @@ var number_map_to_word = function(collection){
 };
 
 function numberToChar(currentNumber) {
-  var currentChar = String.fromCharCode(currentNumber + 96);
-  return currentChar;
+  return String.fromCharCode(currentNumber + 96);
 }
 
 module.exports = number_map_to_word;

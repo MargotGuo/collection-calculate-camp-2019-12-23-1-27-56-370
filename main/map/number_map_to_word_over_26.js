@@ -5,15 +5,14 @@ var number_map_to_word_over_26 = function(collection){
   return charArr;
 };
 
-function numberToChar(currentNumber) {
-  var round = Math.floor((currentNumber - 1) / 26);
-  var currentChar;
-  if (round) {
-    currentChar = String.fromCharCode(round + 96) + String.fromCharCode(currentNumber - 26 * round + 96);
+function numberToChar (currentNumber) {
+  var quotient = Math.floor((currentNumber - 1) / 26);
+  var remainder = (currentNumber - 1) % 26;
+  if (quotient === 0) {
+    return String.fromCharCode(remainder + 97);
   } else {
-    currentChar = String.fromCharCode(currentNumber + 96);
+    return numberToChar(quotient) + String.fromCharCode(remainder + 97);
   }
-  return currentChar;
 }
 
 module.exports = number_map_to_word_over_26;
