@@ -12,20 +12,15 @@ function collect_same_elements(collection_a, collection_b) {
 }
 
 function flatArray(collection) {
-  var result = flaten(collection);
-  return result;
-}
-
-function flaten(array) {
   var result = [];
-  for (var i = 0, len = array.length; i < len; i++) {
-    if (array[i] instanceof Array) {
-      var newArray = flaten(array[i]);
-      result = result.concat(newArray);
-    } else {
-      result.push(array[i]);
-    }
+  if (collection instanceof Array) {
+    collection.forEach(function (element) {
+      result = result.concat(flatArray(element));
+    });
+  } else {
+    result.push(collection);
   }
   return result;
 }
+
 module.exports = collect_same_elements;
